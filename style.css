@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,800&display=swap");
+
+:root {
+  --body-background: #1f2632;
+  --container-background: #323a49;
+  --neon-green: #52ffa8;
+  --font-color: #cee3e9;
+  --placeholder-background: #272e3a;
+  --placeholder-animation-bg: #323a49;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--body-background);
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 500px;
+  background-color: var(--container-background);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container span {
+  color: var(--neon-green);
+  display: block;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.container .span-placeholder,
+.container .div-placeholder {
+  background-color: var(--placeholder-background);
+  border-radius: 10px;
+  animation: change-color 2s infinite linear;
+}
+
+.container .span-placeholder {
+  width: 50%;
+  height: 50px;
+}
+
+.container .result-div {
+  color: var(--font-color);
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.container .div-placeholder {
+  width: 95%;
+  height: 100px;
+}
+
+@keyframes change-color {
+  50% {
+    background-color: var(--placeholder-animation-bg);
+  }
+}
+
+.container .btn {
+  height: 60px;
+  width: 60px;
+  background-color: var(--neon-green);
+  position: absolute;
+  bottom: -30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 70px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.container .btn i {
+  font-size: 28px;
+  transition: 0.3s;
+}
+
+.container .btn:hover {
+  box-shadow: 0 0 40px var(--neon-green);
+}
+
+.container .btn:hover i {
+  rotate: 90deg;
+}
+
+.container .btn.loading {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.container .btn.loading:hover i {
+  rotate: 0deg;
+}
+
+.container .seperator {
+  color: var(--font-color);
+  font-size: 28px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.container .seperator::before,
+.container .seperator::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 0.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #4e5d73;
+}
+
+.container .seperator::before {
+  left: 0;
+}
+
+.container .seperator::after {
+  right: 0;
+}
+
+@media (max-width: 550px) {
+  .container {
+    width: 85%;
+    top: 30%;
+  }
+
+  .container span {
+    font-size: 12px;
+  }
+
+  .container .result-div {
+    font-size: 22px;
+  }
+}
